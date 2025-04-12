@@ -10,7 +10,16 @@ npm run tests
 
 > Will run a number of tests as configured [here](./config.js). By default, `100,000` randomly generated tests. Should pass all of them.
 
-> Please feel free to inspect the [Test Cases](./data/) and recommend suggestions or fixes if you see any!
+> Please feel free to inspect the [Test Cases](./data/) and recommend suggestions or fixes if you see any! 
+
+Setting the [Config](./config.js) to the following is useful to help with debugging/validating test cases:
+
+```javascript
+module.exports = {
+    FULL_LOGGING: true,
+    TEST_CASES: 100
+}
+```
 
 ### Output
 

@@ -32,6 +32,7 @@ const GENERATE_CASE = () => {
 const ASSERT_ARR_EQUALS = (A, T) => {
     const EX = MAKE_EXPECTED(T)
     
+    // Check same length
     if (A.length !== T.length) {
         console.log(`Mismatch found - lengths: ${A.length} =/= ${T.length}!`)
         console.log(`Problematic Array Pair - A: ${A}!`)
@@ -48,6 +49,7 @@ const ASSERT_ARR_EQUALS = (A, T) => {
             return false
         }
 
+        // Check same value by index
         if (A[i] === EX[i]) continue
         console.log(`Mismatch found: ${A[i]} and ${EX[i]} at index: ${i}!`)
         console.log(`Problematic Array Pair - A: ${A}!`)
