@@ -74,12 +74,14 @@ module.exports = {
 
         for (let i = 0; i < FIXED.length; i++) {
             const T = FIXED[i]
+            // Make Deep Copies everywhere...
             if (!ASSERT_ARR_EQUALS(f([...T]), [...T])) failures++
             else successes++
         }
 
         for (let i = 0; i < RANDOM.length; i++) {
             const T = RANDOM[i]
+            // Make Deep Copies everywhere...
             if (!ASSERT_ARR_EQUALS(f([...T]), [...T])) failures++
             else successes++
         }
