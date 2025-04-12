@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "tests": "node test_runner.js",
+        "tests": "npm i && node test_runner.js",
         "stop-win": "Taskkill /IM node.exe /F",
         "stop-linux": "killall node"
     },
