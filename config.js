@@ -10,5 +10,6 @@
  */
 
 module.exports = {
-    FULL_LOGGING: false
+    FULL_LOGGING: false,
+    TEST_CASES: 100000
 }

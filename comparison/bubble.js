@@ -23,7 +23,6 @@ module.exports = {
             } else i++
         }
 
-
         const END = new Date()
         if (C.FULL_LOGGING) console.log(`Ending array: ${arr} - Length: ${arr.length} - Time: ${END - BEGIN}`)
         return [...arr]

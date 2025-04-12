@@ -33,8 +33,7 @@ module.exports = {
             if (r.length >= 2) r = inner(r)
             return [...l, a[P], ...r]
         }
-
-        result = inner(arr)
+        if (arr.length) result = inner(arr)
 
         const END = new Date()
         if (C.FULL_LOGGING) console.log(`Ending array: ${result} - Length: ${result.length} - Time: ${END - BEGIN}`)

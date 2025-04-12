@@ -11,8 +11,11 @@ const C = require('../config')
 module.exports = {
     CUSTOM: arr => {
         if (C.FULL_LOGGING) console.log(`Starting array: ${arr} - Length: ${arr.length}`)
-        const BEGIN = new Date()
 
+        let result = []
+
+        const BEGIN = new Date()
+        
         const inner = (arr, result = []) => {
             let lowest = arr[0], lowestIndex = 0
             const L = arr.length
@@ -36,10 +39,10 @@ module.exports = {
                 arr = first.concat(second)
             }
 
-            if (L > 0) return inner(arr, result)
+            if (arr.length) return inner(arr, result)
             else return result
         }
-        let result = inner(arr)
+        if (arr.length) result = inner(arr)
 
         const END = new Date()
         if (C.FULL_LOGGING) console.log(`Ending array: ${result} - Length: ${result.length} - Time: ${END - BEGIN}`)

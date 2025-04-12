@@ -16,5 +16,7 @@
         "node"
     ],
     "author": "Adam I. Gerard",
-    "dependencies": { }
+    "dependencies": {
+        "@datastructures-js/heap": "=4.3.3"
+    }
 }
