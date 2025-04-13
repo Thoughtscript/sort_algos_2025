@@ -1,6 +1,3 @@
-
-
-
 'use strict'
 
 /**
@@ -11,5 +8,7 @@
 
 module.exports = {
     FULL_LOGGING: false,
-    TEST_CASES: 100000
+    TEST_CASES: 100000,
+    ARRAY_SIZE: 100,
+    MAX_VAL: 300
 }

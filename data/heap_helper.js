@@ -12,18 +12,25 @@ const { MinHeap } = require('@datastructures-js/heap'),  C = require('../config'
 const MAKE_EXPECTED = A => {
     const temp = new MinHeap()
     A.forEach(n => temp.push(n))
+    // https://github.com/datastructures-js/heap?tab=readme-ov-file#sort
     const result = temp.sort()
-    if (C.FULL_LOGGING) console.log(`Printing @datastructures-js/heap MinHeap.sort(): ${result} - will be in reverse order!`)
+    if (C.FULL_LOGGING) console.log(`Printing @datastructures-js/heap MinHeap.sort(): ${result}!`)
     return result
 }
 
 const GENERATE_CASE = () => {
-    const L = Math.floor(Math.random() * 15)
+    const L = Math.floor(Math.random() * C.ARRAY_SIZE)
 
-    let A = []
+    let A = [], seen = {}
 
+    // Disallow duplicates
     for (let i = 0; i < L; i++) {
-        A.push(Math.floor(Math.random() * 100))
+        let N = Math.floor(Math.random() * C.MAX_VAL)
+        while(seen[N]) {
+            N = Math.floor(Math.random() * C.MAX_VAL)
+        }
+        A.push(N)
+        seen[N] = true
     }
 
     return A
@@ -62,9 +69,11 @@ const ASSERT_ARR_EQUALS = (A, T) => {
 }
 
 module.exports = {
-    TEST_RANDOM: (f, msg) => {
+    TEST_RANDOM_NO_DUPLICATES: (f, msg) => {
         const MSG = `========================= Testing ${msg} =========================`
         console.log(MSG)
+
+        const TEST_START = new Date()
 
         let successes = 0, failures = 0
 
@@ -76,11 +85,11 @@ module.exports = {
 
         for (let i = 0; i < RANDOM.length; i++) {
             const T = RANDOM[i]
-            // Apparently @datastructures-js/heap sorts node values in reverse...
-            // You can test this by enabling full logging and removing reverse()...
+            // Apparently @datastructures-js/heap sorts using
+            // something like "reverse" (right to left) inorder traversal...
             
             // Also, make Deep Copies everywhere...
-            if (!ASSERT_ARR_EQUALS(f([...T]).reverse(), [...T])) failures++
+            if (!ASSERT_ARR_EQUALS(f([...T]), [...T])) failures++
             else successes++
         }
 
@@ -92,6 +101,8 @@ module.exports = {
         console.log(`SUCCESSES: ${successes}`)
 
         console.log(`FAILURES: ${failures}`)
+
+        console.log(`TIME: ${new Date() - TEST_START}`)
 
         console.log(END + "\n")
     }

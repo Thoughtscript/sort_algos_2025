@@ -16,12 +16,12 @@ const MAKE_EXPECTED = A => {
 }
 
 const GENERATE_CASE = () => {
-    const L = Math.floor(Math.random() * 100)
+    const L = Math.floor(Math.random() * C.ARRAY_SIZE)
 
     let A = []
 
     for (let i = 0; i < L; i++) {
-        A.push(Math.floor(Math.random() * 100))
+        A.push(Math.floor(Math.random() * C.MAX_VAL))
     }
 
     return A
@@ -64,6 +64,8 @@ module.exports = {
         const MSG = `========================= Testing ${msg} =========================`
         console.log(MSG)
 
+        const TEST_START = new Date()
+
         let successes = 0, failures = 0
 
         const RANDOM = []
@@ -94,6 +96,8 @@ module.exports = {
         console.log(`SUCCESSES: ${successes}`)
 
         console.log(`FAILURES: ${failures}`)
+
+        console.log(`TIME: ${new Date() - TEST_START}`)
 
         console.log(END + "\n")
     }
