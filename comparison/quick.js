@@ -27,6 +27,8 @@ module.exports = {
 
     my_array = [3, 6, 8, 10, 1, 2, 1]
     sorted_array = quicksort(my_array)
+
+    -----------------------------------------------------------------------------------
  
     Google indicates that the above is a common implementation of Quicksort in Python.
 
@@ -59,7 +61,8 @@ module.exports = {
                 const N = a[i]
 
                 // Skips Partition and Swap
-                // Doesn't use Swap but Push
+                // Doesn't use Swap but Push 
+                // per the comments above
                 if (N < a[P]) l.push(N)
                 else r.push(N)
             }
