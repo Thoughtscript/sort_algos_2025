@@ -16,6 +16,9 @@ class TreeNode {
     }
 }
 
+// https://www.codewars.com/kata/588534713472944a9e000029
+// https://leetcode.com/problems/validate-binary-search-tree/
+// https://www.geeksforgeeks.org/problems/check-for-bst/1
 const isValid = (node, low, high) => {  
     if (!node) return true
     
